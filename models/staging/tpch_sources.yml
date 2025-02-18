@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: tpch  # Fixed incorrect "-name:"
+    database: snowflake_sample_data  # Fixed spelling (was "databse")
+    schema: tpch_sf1
+    tables:
+      - name: orders  # Fixed incorrect "-name:"
+        columns:
+          - name: o_orderkey  # Fixed "-names:"
+            tests:
+              - unique
+              - not_null
+
+      - name: lineitem  # Fixed incorrect "-name:"
+        columns:
+          - name: l_orderkey
+            tests:
+              - relationships:
+                  to: source('tpch', 'orders')
+                  field: o_orderkey  # Changed "fields" to "field" (correct syntax)
