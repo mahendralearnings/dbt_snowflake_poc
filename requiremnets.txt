@@ -1,0 +1,6 @@
+
+dbt-snowflake==1.7.1
+dagster-dbt==0.22.6
+dagster-webserver==1.6.6
+astronomer-cosmos
+apache-airflow-providers-snowflake
